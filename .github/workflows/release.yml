@@ -1,36 +1,61 @@
-name: Prepare Release
+name: Release & Publish to Go Proxy
+
 on:
+  push:
+    tags:
+      - 'v*'
   workflow_dispatch:
     inputs:
-      version:
-        description: Version to release (or "auto")
-        required: false
-      force:
-        description: Force a release even when there are release-blockers (optional)
-        required: false
+      tag:
+        description: 'Tag to publish (e.g. v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   release:
+    name: Create GitHub Release & Warm Go Proxy
     runs-on: ubuntu-latest
-    name: "Release a new version"
     steps:
-      - name: Get auth token
-        id: token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+      - name: Checkout Code
+        uses: actions/checkout@v4
         with:
-          app-id: ${{ vars.SENTRY_RELEASE_BOT_CLIENT_ID }}
-          private-key: ${{ secrets.SENTRY_RELEASE_BOT_PRIVATE_KEY }}
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          token: ${{ steps.token.outputs.token }}
           fetch-depth: 0
-      - name: Prepare release
-        uses: getsentry/craft@2e29b0819113d334c15da3d8cac2138cb9dc111a # 3.9.0
-        env:
-          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
         with:
-          version: ${{ github.event.inputs.version }}
-          force: ${{ github.event.inputs.force }}
+          go-version: '1.26'
+
+      - name: Run Tests
+        run: go test -v ./...
+
+      - name: Determine Version
+        id: vars
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.vars.outputs.version }}
+          name: Release ${{ steps.vars.outputs.version }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Register & Index with Go Module Proxy
+        run: |
+          VERSION="${{ steps.vars.outputs.version }}"
+          echo "Warming Go module cache for version: ${VERSION}"
+          GOPROXY=https://proxy.golang.org go list -m github.com/ichnois/ichnois-go@${VERSION}
+          curl -s "https://proxy.golang.org/github.com/ichnois/ichnois-go/@v/${VERSION}.info" || true
+          echo "Indexed on proxy.golang.org and pkg.go.dev!"
