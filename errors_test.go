@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	goErrors "github.com/go-errors/errors"

@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/attribute"
-	"github.com/getsentry/sentry-go/internal/contextkey"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/attribute"
+	"github.com/ichnois/ichnois-go/internal/contextkey"
 	"go.uber.org/zap/zapcore"
 )
 

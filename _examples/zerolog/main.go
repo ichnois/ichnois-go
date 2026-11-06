@@ -5,8 +5,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	sentryzerolog "github.com/getsentry/sentry-go/zerolog"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryzerolog "github.com/ichnois/ichnois-go/zerolog"
 	"github.com/rs/zerolog"
 )
 

@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/attribute"
-	sentryhttp "github.com/getsentry/sentry-go/http"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/attribute"
+	sentryhttp "github.com/ichnois/ichnois-go/http"
 )
 
 var meter sentry.Meter

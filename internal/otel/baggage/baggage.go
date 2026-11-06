@@ -24,7 +24,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/getsentry/sentry-go/internal/otel/baggage/internal/baggage"
+	"github.com/ichnois/ichnois-go/internal/otel/baggage/internal/baggage"
 )
 
 const (

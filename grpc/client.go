@@ -10,8 +10,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/traceutils"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/traceutils"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"

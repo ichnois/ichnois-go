@@ -1,4 +1,4 @@
-package sentry_test
+package ichnois_test
 
 import (
 	"context"
@@ -7,9 +7,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/attribute"
-	"github.com/getsentry/sentry-go/internal/sentrytest"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/attribute"
+	"github.com/ichnois/ichnois-go/internal/sentrytest"
 	"github.com/stretchr/testify/require"
 )
 

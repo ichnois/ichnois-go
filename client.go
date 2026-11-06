@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"context"
@@ -13,12 +13,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/getsentry/sentry-go/internal/debug"
-	"github.com/getsentry/sentry-go/internal/debuglog"
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/internal/telemetry"
-	"github.com/getsentry/sentry-go/protocol"
-	"github.com/getsentry/sentry-go/report"
+	"github.com/ichnois/ichnois-go/internal/debug"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/internal/telemetry"
+	"github.com/ichnois/ichnois-go/protocol"
+	"github.com/ichnois/ichnois-go/report"
 )
 
 // The identifier of the SDK.

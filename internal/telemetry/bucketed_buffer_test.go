@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/getsentry/sentry-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
 )
 
 type tbItem struct {

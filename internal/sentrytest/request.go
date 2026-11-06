@@ -6,7 +6,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 )
 
 // CheckRequestIsolation exercises sequential reuse and concurrent requests.

@@ -12,10 +12,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/internal/testutils"
-	"github.com/getsentry/sentry-go/protocol"
-	reportpkg "github.com/getsentry/sentry-go/report"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/internal/testutils"
+	"github.com/ichnois/ichnois-go/protocol"
+	reportpkg "github.com/ichnois/ichnois-go/report"
 )
 
 type testTelemetryItem struct {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/stretchr/testify/assert"

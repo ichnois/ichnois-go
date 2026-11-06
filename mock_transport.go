@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"context"
@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/getsentry/sentry-go/attribute"
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/attribute"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 // MockTransport implements [Transport] for use in tests.

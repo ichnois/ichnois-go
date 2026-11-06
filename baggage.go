@@ -1,11 +1,11 @@
-package sentry
+package ichnois
 
 import (
 	"fmt"
 	"strings"
 
-	"github.com/getsentry/sentry-go/internal/debuglog"
-	"github.com/getsentry/sentry-go/internal/otel/baggage"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/otel/baggage"
 )
 
 // MergeBaggage merges an existing baggage header with a Sentry-generated one.

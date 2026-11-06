@@ -1,4 +1,4 @@
-package sentry_test
+package ichnois_test
 
 import (
 	"context"
@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/sentrytest"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/sentrytest"
 )
 
 func checkInEvents(t *testing.T, f *sentrytest.Fixture) []*sentry.Event {

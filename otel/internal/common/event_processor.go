@@ -3,7 +3,7 @@ package common
 import (
 	"context"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 	"go.opentelemetry.io/otel/trace"
 )
 

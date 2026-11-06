@@ -1,7 +1,7 @@
 package telemetry
 
 import (
-	"github.com/getsentry/sentry-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
 )
 
 // Buffer defines the common interface for all buffer implementations.

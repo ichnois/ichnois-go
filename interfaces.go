@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"context"
@@ -9,10 +9,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/getsentry/sentry-go/attribute"
-	"github.com/getsentry/sentry-go/internal/debuglog"
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/attribute"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 const errorType = ""

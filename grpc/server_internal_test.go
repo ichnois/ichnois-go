@@ -3,8 +3,8 @@ package sentrygrpc
 import (
 	"testing"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/testutils"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/testutils"
 	"github.com/google/go-cmp/cmp"
 	"google.golang.org/grpc/metadata"
 )

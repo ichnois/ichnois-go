@@ -7,9 +7,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/_examples/grpc/server/examplepb"
-	sentrygrpc "github.com/getsentry/sentry-go/grpc"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/_examples/grpc/server/examplepb"
+	sentrygrpc "github.com/ichnois/ichnois-go/grpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 )

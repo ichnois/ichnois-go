@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 // Option represents an optional configuration value.
 //

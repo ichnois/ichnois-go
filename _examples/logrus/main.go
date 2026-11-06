@@ -7,8 +7,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	sentrylogrus "github.com/getsentry/sentry-go/logrus"
+	sentry "github.com/ichnois/ichnois-go"
+	sentrylogrus "github.com/ichnois/ichnois-go/logrus"
 	"github.com/sirupsen/logrus"
 )
 

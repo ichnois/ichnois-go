@@ -1,7 +1,7 @@
 // Package sentryhttpclient provides Sentry integration for Requests modules to enable distributed tracing between services.
 // It is compatible with `net/http.RoundTripper`.
 //
-//	import sentryhttpclient "github.com/getsentry/sentry-go/httpclient"
+//	import sentryhttpclient "github.com/ichnois/ichnois-go/httpclient"
 //
 //	roundTrippper := sentryhttpclient.NewSentryRoundTripper(nil, nil)
 //	client := &http.Client{
@@ -19,9 +19,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/httputils"
-	"github.com/getsentry/sentry-go/internal/traceutils"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/httputils"
+	"github.com/ichnois/ichnois-go/internal/traceutils"
 )
 
 // SentryRoundTripTracerOption provides a specific type in which defines the option for SentryRoundTripper.

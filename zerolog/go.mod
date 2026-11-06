@@ -1,12 +1,12 @@
-module github.com/getsentry/sentry-go/zerolog
+module github.com/ichnois/ichnois-go/zerolog
 
 go 1.26.0
 
-replace github.com/getsentry/sentry-go => ../
+replace github.com/ichnois/ichnois-go => ../
 
 require (
 	github.com/buger/jsonparser v1.1.2
-	github.com/getsentry/sentry-go v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go v1.0.0-alpha.1
 	github.com/rs/zerolog v1.33.0
 	github.com/stretchr/testify v1.11.1
 )

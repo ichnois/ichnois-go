@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"context"
@@ -255,7 +255,7 @@ func TestExtractModules(t *testing.T) {
 				},
 				Deps: []*debug.Module{
 					{
-						Path:    "github.com/getsentry/sentry-go",
+						Path:    "github.com/ichnois/ichnois-go",
 						Version: "v0.5.1",
 					},
 					{
@@ -266,7 +266,7 @@ func TestExtractModules(t *testing.T) {
 			},
 			want: map[string]string{
 				"my/module":                      "(devel)",
-				"github.com/getsentry/sentry-go": "v0.5.1",
+				"github.com/ichnois/ichnois-go": "v0.5.1",
 				"github.com/gin-gonic/gin":       "v1.4.0",
 			},
 		},
@@ -279,7 +279,7 @@ func TestExtractModules(t *testing.T) {
 				},
 				Deps: []*debug.Module{
 					{
-						Path:    "github.com/getsentry/sentry-go",
+						Path:    "github.com/ichnois/ichnois-go",
 						Version: "v0.5.1",
 						Replace: &debug.Module{
 							Path: "pkg/sentry",
@@ -289,7 +289,7 @@ func TestExtractModules(t *testing.T) {
 			},
 			want: map[string]string{
 				"my/module":                      "(devel)",
-				"github.com/getsentry/sentry-go": "v0.5.1 => pkg/sentry",
+				"github.com/ichnois/ichnois-go": "v0.5.1 => pkg/sentry",
 			},
 		},
 		{

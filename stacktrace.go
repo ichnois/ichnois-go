@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"go/build"
@@ -336,7 +336,7 @@ func shouldSkipFrame(module string) bool {
 	}
 
 	// Skip Sentry internal frames, except for frames in _test packages (for testing).
-	if strings.HasPrefix(module, "github.com/getsentry/sentry-go") &&
+	if strings.HasPrefix(module, "github.com/ichnois/ichnois-go") &&
 		!strings.HasSuffix(module, "_test") {
 		return true
 	}

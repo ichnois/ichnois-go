@@ -6,8 +6,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/getsentry/sentry-go"
-	sentryhttpclient "github.com/getsentry/sentry-go/httpclient"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryhttpclient "github.com/ichnois/ichnois-go/httpclient"
 )
 
 func main() {

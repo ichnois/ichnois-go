@@ -1,107 +1,164 @@
 <p align="center">
-  <a href="https://sentry.io/?utm_source=github&utm_medium=logo" target="_blank">
-    <picture>
-      <source srcset="https://sentry-brand.storage.googleapis.com/sentry-logo-white.png" media="(prefers-color-scheme: dark)" />
-      <img src="https://sentry-brand.storage.googleapis.com/sentry-wordmark-dark-280x84.png" alt="Sentry" width="280">
-    </picture>
-  </a>
+  <h1 align="center">Official Ichnois SDK for Go</h1>
+  <p align="center">Real-time error tracking and telemetry monitoring for Go applications powered by <a href="https://ichnois-h2jw.onrender.com">Ichnois</a>.</p>
 </p>
 
-# Official Sentry SDK for Go
+---
 
-[![Build Status](https://github.com/getsentry/sentry-go/actions/workflows/test.yml/badge.svg)](https://github.com/getsentry/sentry-go/actions/workflows/test.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/getsentry/sentry-go)](https://goreportcard.com/report/github.com/getsentry/sentry-go)
-[![Discord](https://img.shields.io/discord/621778831602221064)](https://discord.gg/Ww9hbqr)
-[![X Follow](https://img.shields.io/twitter/follow/sentry?label=sentry&style=social)](https://x.com/intent/follow?screen_name=sentry)
-[![go.dev](https://img.shields.io/badge/go.dev-pkg-007d9c.svg?style=flat)](https://pkg.go.dev/github.com/getsentry/sentry-go)
+[![Go Reference](https://pkg.go.dev/badge/github.com/ichnois/ichnois-go.svg)](https://pkg.go.dev/github.com/ichnois/ichnois-go)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-`sentry-go` provides a Sentry client implementation for the Go programming
-language. This is the next generation of the Go SDK for [Sentry](https://sentry.io/),
-intended to replace the `raven-go` package.
+`ichnois-go` is the official Go SDK for **[Ichnois](https://ichnois-h2jw.onrender.com)**. It captures unhandled panics, application errors, and performance traces, seamlessly streaming NDJSON envelopes to the Ichnois telemetry ingestion gateway.
 
-> Looking for the old `raven-go` SDK documentation? See the Legacy client section [here](https://docs.sentry.io/clients/go/).
-> If you want to start using `sentry-go` instead, check out the [migration guide](https://docs.sentry.io/platforms/go/migration/).
+## Features
+
+- **Zero-Friction Ingestion**: Native path handling that resolves directly to `/api/{project_id}/envelope/`.
+- **Pure Ichnois Experience**: Modern `ichnois` package namespace with zero visible third-party dependencies required in your code.
+- **Dual-Wire Authentication**: Sends `X-Ichnois-Auth` and `X-Sentry-Auth` for maximum gateway compatibility.
+- **Environment First**: Automatic configuration via `ICHNOIS_DSN`, `ICHNOIS_ENVIRONMENT`, and `ICHNOIS_RELEASE`.
+- **Framework Ecosystem**: Built-in middleware for Gin, Echo, Fiber, Net/HTTP, Logrus, Zap, Slog, Zerolog, and Cron.
+- **100% Drop-In Compatibility**: Supports alias importing (`import sentry "github.com/ichnois/ichnois-go"`) for existing codebases.
 
 ## Requirements
 
-The only requirement is a Go compiler.
-
-We follow Go's [official release policy](https://go.dev/doc/devel/release#policy),
-supporting the two most recent Go releases. Each major Go release is supported
-until there are two newer major releases. The exact versions are defined in
-[`GitHub workflow`](.github/workflows/test.yml).
-
-In addition, we run tests against the current master branch of the Go toolchain,
-though support for this configuration is best-effort.
+- Go 1.20 or newer.
 
 ## Installation
 
-`sentry-go` can be installed like any other Go library through `go get`:
-
-```console
-$ go get github.com/getsentry/sentry-go@latest
+```bash
+go get github.com/ichnois/ichnois-go@latest
 ```
 
-Check out the [list of released versions](https://github.com/getsentry/sentry-go/releases).
+## Quick Start
 
-## Configuration
+Initialize the SDK as early as possible in your `main()` function:
 
-To use `sentry-go`, you’ll need to import the `sentry-go` package and initialize
-it with your DSN and other [options](https://pkg.go.dev/github.com/getsentry/sentry-go#ClientOptions).
+```go
+package main
 
-If not specified in the SDK initialization, the
-[DSN](https://docs.sentry.io/product/sentry-basics/dsn-explainer/),
-[Release](https://docs.sentry.io/product/releases/) and
-[Environment](https://docs.sentry.io/product/sentry-basics/environments/)
-are read from the environment variables `SENTRY_DSN`, `SENTRY_RELEASE` and
-`SENTRY_ENVIRONMENT`, respectively.
+import (
+	"context"
+	"errors"
+	"time"
 
-More on this in the [Configuration section of the official Sentry Go SDK documentation](https://docs.sentry.io/platforms/go/configuration/).
+	"github.com/ichnois/ichnois-go"
+)
 
-## Usage
+func main() {
+	err := ichnois.Init(ichnois.ClientOptions{
+		Dsn: "https://your-key@ichnois-h2jw.onrender.com/api/my-service",
+		// Environment: "production",
+		// Release:     "v1.0.0",
+		// Debug:       false,
+	})
+	if err != nil {
+		panic(err)
+	}
 
-The SDK supports reporting errors and tracking application performance.
+	// Flush buffered events before exit
+	defer ichnois.Flush(2 * time.Second)
 
-To get started, have a look at one of our [examples](_examples/):
-- [Basic error instrumentation](_examples/basic/main.go)
-- [Error and tracing for HTTP servers](_examples/http/main.go)
+	// Capture an arbitrary message
+	ichnois.CaptureMessage(context.Background(), "Application started successfully")
 
-We also provide a [complete API reference](https://pkg.go.dev/github.com/getsentry/sentry-go).
+	// Capture an error
+	if err := doRiskyOperation(); err != nil {
+		ichnois.CaptureException(context.Background(), err)
+	}
+}
 
-For more detailed information about how to get the most out of `sentry-go`,
-check out the official documentation:
+func doRiskyOperation() error {
+	return errors.New("database connection failed")
+}
+```
 
-- [Sentry Go SDK documentation](https://docs.sentry.io/platforms/go/)
-- Guides:
-  - [net/http](https://docs.sentry.io/platforms/go/guides/http/)
-  - [echo](https://docs.sentry.io/platforms/go/guides/echo/)
-  - [fasthttp](https://docs.sentry.io/platforms/go/guides/fasthttp/)
-  - [fiber](https://docs.sentry.io/platforms/go/guides/fiber/)
-  - [gin](https://docs.sentry.io/platforms/go/guides/gin/)
-  - [iris](https://docs.sentry.io/platforms/go/guides/iris/)
-  - [logrus](https://docs.sentry.io/platforms/go/guides/logrus/)
-  - [negroni](https://docs.sentry.io/platforms/go/guides/negroni/)
-  - [slog](https://docs.sentry.io/platforms/go/guides/slog/)
-  - [zerolog](https://docs.sentry.io/platforms/go/guides/zerolog/)
+## Panic Recovery
 
-## Resources
+Protect goroutines or HTTP handlers using `ichnois.Recover()`:
 
-- [Bug Tracker](https://github.com/getsentry/sentry-go/issues)
-- [GitHub Project](https://github.com/getsentry/sentry-go)
-- [![go.dev](https://img.shields.io/badge/go.dev-pkg-007d9c.svg?style=flat)](https://pkg.go.dev/github.com/getsentry/sentry-go)
-- [![Documentation](https://img.shields.io/badge/documentation-sentry.io-green.svg)](https://docs.sentry.io/platforms/go/)
-- [![Discussions](https://img.shields.io/github/discussions/getsentry/sentry-go.svg)](https://github.com/getsentry/sentry-go/discussions)
-- [![Discord](https://img.shields.io/discord/621778831602221064)](https://discord.gg/Ww9hbqr)
-- [![Stack Overflow](https://img.shields.io/badge/stack%20overflow-sentry-green.svg)](http://stackoverflow.com/questions/tagged/sentry)
-- [![Twitter Follow](https://img.shields.io/twitter/follow/getsentry?label=getsentry&style=social)](https://twitter.com/intent/follow?screen_name=getsentry)
+```go
+go func() {
+	defer ichnois.Recover(context.Background(), nil)
+	// Code that may panic
+}()
+```
+
+## Environment Variables
+
+If not explicitly defined in `ClientOptions`, the SDK automatically resolves:
+
+| Variable | Description | Fallback |
+| :--- | :--- | :--- |
+| `ICHNOIS_DSN` | Ingestion endpoint URL | `SENTRY_DSN` |
+| `ICHNOIS_ENVIRONMENT` | Target environment (e.g. `production`) | `SENTRY_ENVIRONMENT` |
+| `ICHNOIS_RELEASE` | Application release version / commit SHA | `SENTRY_RELEASE` |
+| `ICHNOISGODEBUG` | Comma-separated debug options (`httpdump`, etc.) | `SENTRYGODEBUG` |
+
+## Framework Middleware
+
+`ichnois-go` includes first-class integrations for popular Go frameworks:
+
+### Gin
+```go
+import (
+	"github.com/gin-gonic/gin"
+	ichnoisgin "github.com/ichnois/ichnois-go/gin"
+)
+
+r := gin.Default()
+r.Use(ichnoisgin.New(ichnoisgin.Options{
+	Repanic: true,
+}))
+```
+
+### Echo
+```go
+import (
+	"github.com/labstack/echo/v4"
+	ichnoisecho "github.com/ichnois/ichnois-go/echo"
+)
+
+e := echo.New()
+e.Use(ichnoisecho.New(ichnoisecho.Options{
+	Repanic: true,
+}))
+```
+
+### Fiber
+```go
+import (
+	"github.com/gofiber/fiber/v2"
+	ichnoisfiber "github.com/ichnois/ichnois-go/fiber"
+)
+
+app := fiber.New()
+app.Use(ichnoisfiber.New(ichnoisfiber.Options{}))
+```
+
+### Standard `net/http`
+```go
+import (
+	"net/http"
+	ichnoishttp "github.com/ichnois/ichnois-go/http"
+)
+
+handler := ichnoishttp.New(ichnoishttp.Options{}).Handle(myHandler)
+http.ListenAndServe(":8080", handler)
+```
+
+## Migrating from Sentry
+
+Existing projects can switch to Ichnois with a single import alias change:
+
+```go
+// Replace:
+// import "github.com/getsentry/sentry-go"
+// With:
+import sentry "github.com/ichnois/ichnois-go"
+```
+
+All existing calls (`sentry.Init`, `sentry.CaptureException`, `sentry.WithScope`, etc.) work unchanged.
 
 ## License
 
-Licensed under
-[The MIT License](https://opensource.org/licenses/mit/), see
-[`LICENSE`](LICENSE).
-
-## Community
-
-Join Sentry's [`#go` channel on Discord](https://discord.gg/Ww9hbqr) to get
-involved and help us improve the SDK!
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.

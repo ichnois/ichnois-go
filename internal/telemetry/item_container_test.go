@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 type dummyLog struct{ body string }

@@ -11,8 +11,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/utils"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/debuglog"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
 )
 
 const (
@@ -111,7 +111,7 @@ func (h *handler) handle(ctx *fiber.Ctx) error {
 		defer func() {
 			// Fiber v2 does not expose whether ctx.Route() originates from a middleware. We keep the
 			// URL-based name (opposite to v3) because middlewares that short-circuits the handler chain can
-			// otherwise replace the ctx.Route(). See https://github.com/getsentry/sentry-go/issues/1361.
+			// otherwise replace the ctx.Route(). See https://github.com/ichnois/ichnois-go/issues/1361.
 			status := ctx.Response().StatusCode()
 			transaction.Status = sentry.HTTPtoSpanStatus(status)
 			transaction.SetData("http.response.status_code", status)

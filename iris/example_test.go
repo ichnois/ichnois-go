@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/getsentry/sentry-go"
-	sentryiris "github.com/getsentry/sentry-go/iris"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryiris "github.com/ichnois/ichnois-go/iris"
 	"github.com/kataras/iris/v12"
 )
 

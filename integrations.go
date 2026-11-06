@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/getsentry/sentry-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
 )
 
 // ================================

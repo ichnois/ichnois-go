@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/debuglog"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
 	"github.com/robfig/cron/v3"
 )
 

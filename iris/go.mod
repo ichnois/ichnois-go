@@ -1,11 +1,11 @@
-module github.com/getsentry/sentry-go/iris
+module github.com/ichnois/ichnois-go/iris
 
 go 1.26.0
 
-replace github.com/getsentry/sentry-go => ../
+replace github.com/ichnois/ichnois-go => ../
 
 require (
-	github.com/getsentry/sentry-go v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go v1.0.0-alpha.1
 	github.com/google/go-cmp v0.7.0
 	github.com/kataras/iris/v12 v12.2.0
 )

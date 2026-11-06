@@ -25,7 +25,7 @@ func TestSource(t *testing.T) {
 	groupAttrs := attr.Value.Group()
 
 	expectedAttrs := map[string]any{
-		"function": "github.com/getsentry/sentry-go/slog.TestSource",
+		"function": "github.com/ichnois/ichnois-go/slog.TestSource",
 		"file":     file,
 		"line":     int64(15),
 	}

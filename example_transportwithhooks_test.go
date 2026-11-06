@@ -1,4 +1,4 @@
-package sentry_test
+package ichnois_test
 
 import (
 	"context"
@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 )
 
 // TransportWithHooks is an http.RoundTripper that wraps an existing

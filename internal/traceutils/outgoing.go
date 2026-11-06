@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 )
 
 // OutgoingHeaders selects the Sentry trace, merges existing baggage, and

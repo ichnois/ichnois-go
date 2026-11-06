@@ -8,8 +8,8 @@ import (
 
 	"log/slog"
 
-	"github.com/getsentry/sentry-go"
-	sentryslog "github.com/getsentry/sentry-go/slog"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryslog "github.com/ichnois/ichnois-go/slog"
 )
 
 func main() {

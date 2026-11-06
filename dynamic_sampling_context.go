@@ -1,10 +1,10 @@
-package sentry
+package ichnois
 
 import (
 	"strconv"
 	"strings"
 
-	"github.com/getsentry/sentry-go/internal/otel/baggage"
+	"github.com/ichnois/ichnois-go/internal/otel/baggage"
 )
 
 const (

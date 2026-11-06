@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/getsentry/sentry-go"
-	sentryfasthttp "github.com/getsentry/sentry-go/fasthttp"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryfasthttp "github.com/ichnois/ichnois-go/fasthttp"
 	"github.com/valyala/fasthttp"
 )
 

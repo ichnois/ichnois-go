@@ -5,8 +5,8 @@ import (
 	"errors"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	sentryzap "github.com/getsentry/sentry-go/zap"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryzap "github.com/ichnois/ichnois-go/zap"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

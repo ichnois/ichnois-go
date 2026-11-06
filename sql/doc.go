@@ -7,8 +7,8 @@
 //
 //	import (
 //	    _ "modernc.org/sqlite"
-//	    "github.com/getsentry/sentry-go"
-//	    sentrysql "github.com/getsentry/sentry-go/sql"
+//	    "github.com/ichnois/ichnois-go"
+//	    sentrysql "github.com/ichnois/ichnois-go/sql"
 //	)
 //
 //	db, err := sentrysql.Open("sqlite", ":memory:",

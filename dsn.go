@@ -1,7 +1,7 @@
-package sentry
+package ichnois
 
 import (
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 // Re-export protocol types to maintain public API compatibility

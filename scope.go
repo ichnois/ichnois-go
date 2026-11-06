@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"context"
@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/getsentry/sentry-go/attribute"
-	"github.com/getsentry/sentry-go/internal/debuglog"
-	"github.com/getsentry/sentry-go/internal/httputils"
+	"github.com/ichnois/ichnois-go/attribute"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/httputils"
 )
 
 // Scope holds contextual data for an operation.

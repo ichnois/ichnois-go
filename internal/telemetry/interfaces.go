@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 // Item represents any telemetry data that can be stored in buffers.

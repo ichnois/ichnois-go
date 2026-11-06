@@ -1,12 +1,12 @@
-package sentry
+package ichnois
 
 import (
 	"context"
 	"strings"
 	"testing"
 
-	"github.com/getsentry/sentry-go/internal/testutils"
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/internal/testutils"
+	"github.com/ichnois/ichnois-go/protocol"
 	"github.com/stretchr/testify/require"
 )
 

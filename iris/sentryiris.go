@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 	"github.com/kataras/iris/v12"
 )
 

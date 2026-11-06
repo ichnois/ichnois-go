@@ -3,8 +3,8 @@ package sentryotel
 import (
 	"context"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/otel/internal/common"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/otel/internal/common"
 )
 
 type integration struct{}

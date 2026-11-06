@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"bytes"
@@ -13,10 +13,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/internal/testutils"
-	"github.com/getsentry/sentry-go/protocol"
-	"github.com/getsentry/sentry-go/report"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/internal/testutils"
+	"github.com/ichnois/ichnois-go/protocol"
+	"github.com/ichnois/ichnois-go/report"
 	"github.com/stretchr/testify/require"
 )
 

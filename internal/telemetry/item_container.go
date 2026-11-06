@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 var errNoSerializableItems = errors.New("item container contains no serializable items")

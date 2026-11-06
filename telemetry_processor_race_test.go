@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"context"
@@ -8,11 +8,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/internal/telemetry"
-	"github.com/getsentry/sentry-go/internal/testutils"
-	"github.com/getsentry/sentry-go/protocol"
-	"github.com/getsentry/sentry-go/report"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/internal/telemetry"
+	"github.com/ichnois/ichnois-go/internal/testutils"
+	"github.com/ichnois/ichnois-go/protocol"
+	"github.com/ichnois/ichnois-go/report"
 )
 
 // This race is between json.Marshal on the scheduler goroutine and user

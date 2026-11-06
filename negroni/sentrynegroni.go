@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/httputils"
-	"github.com/getsentry/sentry-go/internal/traceutils"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/httputils"
+	"github.com/ichnois/ichnois-go/internal/traceutils"
 	"github.com/urfave/negroni/v3"
 )
 

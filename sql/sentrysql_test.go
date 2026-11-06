@@ -6,8 +6,8 @@ import (
 	"database/sql/driver"
 	"testing"
 
-	sentrysql "github.com/getsentry/sentry-go/sql"
-	"github.com/getsentry/sentry-go/sql/internal/fakedriver"
+	sentrysql "github.com/ichnois/ichnois-go/sql"
+	"github.com/ichnois/ichnois-go/sql/internal/fakedriver"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

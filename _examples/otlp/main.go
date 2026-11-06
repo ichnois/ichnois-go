@@ -19,9 +19,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	sentryotel "github.com/getsentry/sentry-go/otel"
-	sentryotlp "github.com/getsentry/sentry-go/otel/otlp"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryotel "github.com/ichnois/ichnois-go/otel"
+	sentryotlp "github.com/ichnois/ichnois-go/otel/otlp"
 	"go.opentelemetry.io/otel"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 )

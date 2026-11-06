@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"bytes"
@@ -18,9 +18,9 @@ import (
 	"testing/synctest"
 	"time"
 
-	"github.com/getsentry/sentry-go/internal/debuglog"
-	"github.com/getsentry/sentry-go/internal/testutils"
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/testutils"
+	"github.com/ichnois/ichnois-go/protocol"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	pkgErrors "github.com/pkg/errors"
@@ -354,7 +354,7 @@ func TestCaptureMessageEmptyString(t *testing.T) {
 	want := &Event{
 		Exception: []Exception{
 			{
-				Type:       "sentry.usageError",
+				Type:       "ichnois.usageError",
 				Value:      "CaptureMessage called with empty message",
 				Stacktrace: &Stacktrace{},
 			},
@@ -419,7 +419,7 @@ func TestCaptureException(t *testing.T) {
 			err:  nil,
 			want: []Exception{
 				{
-					Type:       "sentry.usageError",
+					Type:       "ichnois.usageError",
 					Value:      "CaptureException called with nil error",
 					Stacktrace: &Stacktrace{},
 				},
@@ -444,7 +444,7 @@ func TestCaptureException(t *testing.T) {
 			err:  pkgErrors.WithStack(&customErr{}),
 			want: []Exception{
 				{
-					Type:       "*sentry.customErr",
+					Type:       "*ichnois.customErr",
 					Value:      "wat",
 					Stacktrace: nil,
 					Mechanism: &Mechanism{
@@ -474,7 +474,7 @@ func TestCaptureException(t *testing.T) {
 			err:  &customErrWithCause{cause: nil},
 			want: []Exception{
 				{
-					Type:       "*sentry.customErrWithCause",
+					Type:       "*ichnois.customErrWithCause",
 					Value:      "err",
 					Stacktrace: &Stacktrace{},
 				},
@@ -485,7 +485,7 @@ func TestCaptureException(t *testing.T) {
 			err:  &customErrWithCause{cause: &customErr{}},
 			want: []Exception{
 				{
-					Type:       "*sentry.customErr",
+					Type:       "*ichnois.customErr",
 					Value:      "wat",
 					Stacktrace: nil,
 					Mechanism: &Mechanism{
@@ -497,7 +497,7 @@ func TestCaptureException(t *testing.T) {
 					},
 				},
 				{
-					Type:       "*sentry.customErrWithCause",
+					Type:       "*ichnois.customErrWithCause",
 					Value:      "err",
 					Stacktrace: &Stacktrace{},
 					Mechanism: &Mechanism{
@@ -527,7 +527,7 @@ func TestCaptureException(t *testing.T) {
 					},
 				},
 				{
-					Type:       "sentry.wrappedError",
+					Type:       "ichnois.wrappedError",
 					Value:      "wrapped: original",
 					Stacktrace: &Stacktrace{},
 					Mechanism: &Mechanism{
@@ -565,7 +565,7 @@ func TestCaptureException(t *testing.T) {
 					},
 				},
 				{
-					Type:       "sentry.wrappedError",
+					Type:       "ichnois.wrappedError",
 					Value:      `wrapped: Post "http://auth/api?token=[Filtered]&q=a%20b": timeout`,
 					Stacktrace: &Stacktrace{},
 					Mechanism:  &Mechanism{Type: MechanismTypeGeneric},
@@ -685,7 +685,7 @@ func TestCaptureEventNil(t *testing.T) {
 	want := &Event{
 		Exception: []Exception{
 			{
-				Type:       "sentry.usageError",
+				Type:       "ichnois.usageError",
 				Value:      "CaptureEvent called with nil event",
 				Stacktrace: &Stacktrace{},
 			},

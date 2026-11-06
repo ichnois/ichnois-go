@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	sqllexer "github.com/DataDog/go-sqllexer"
-	"github.com/getsentry/sentry-go/sql/internal/dbsystem"
+	"github.com/ichnois/ichnois-go/sql/internal/dbsystem"
 )
 
 type DatabaseSystem = dbsystem.Name

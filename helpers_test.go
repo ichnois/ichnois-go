@@ -1,7 +1,7 @@
-package sentry
+package ichnois
 
 import (
-	"github.com/getsentry/sentry-go/internal/testutils"
+	"github.com/ichnois/ichnois-go/internal/testutils"
 )
 
 var assertEqual = testutils.AssertEqual

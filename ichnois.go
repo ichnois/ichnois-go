@@ -1,10 +1,10 @@
-package sentry
+package ichnois
 
 import (
 	"context"
 	"time"
 
-	"github.com/getsentry/sentry-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
 )
 
 // The version of the SDK.

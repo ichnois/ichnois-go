@@ -12,8 +12,8 @@ import (
 	"testing"
 	"testing/synctest"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/testutils"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/testutils"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 )

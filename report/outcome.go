@@ -1,7 +1,7 @@
 package report
 
 import (
-	"github.com/getsentry/sentry-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
 )
 
 // OutcomeKey uniquely identifies an outcome bucket for aggregation.

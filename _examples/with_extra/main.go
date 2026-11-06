@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/protocol"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 func prettyPrint(v interface{}) string {

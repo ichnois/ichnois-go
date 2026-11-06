@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	sentrynegroni "github.com/getsentry/sentry-go/negroni"
+	sentrynegroni "github.com/ichnois/ichnois-go/negroni"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 	"github.com/urfave/negroni/v3"
 )
 

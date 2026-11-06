@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 )
 
 type pickleIntegration struct{}

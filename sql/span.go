@@ -5,7 +5,7 @@ import (
 	"database/sql/driver"
 	"errors"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 )
 
 const (

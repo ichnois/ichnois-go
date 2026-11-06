@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	sentrygin "github.com/getsentry/sentry-go/gin"
-	"github.com/getsentry/sentry-go/internal/testutils"
+	sentry "github.com/ichnois/ichnois-go"
+	sentrygin "github.com/ichnois/ichnois-go/gin"
+	"github.com/ichnois/ichnois-go/internal/testutils"
 	"github.com/gin-gonic/gin"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"

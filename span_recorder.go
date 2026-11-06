@@ -1,9 +1,9 @@
-package sentry
+package ichnois
 
 import (
 	"sync"
 
-	"github.com/getsentry/sentry-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
 )
 
 // A spanRecorder stores a span tree that makes up a transaction. Safe for

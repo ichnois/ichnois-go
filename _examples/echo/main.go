@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/getsentry/sentry-go"
-	sentryecho "github.com/getsentry/sentry-go/echo"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryecho "github.com/ichnois/ichnois-go/echo"
 	"github.com/labstack/echo/v5"
 	"github.com/labstack/echo/v5/middleware"
 )

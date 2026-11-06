@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/getsentry/sentry-go"
-	sentrygrpc "github.com/getsentry/sentry-go/grpc"
-	"github.com/getsentry/sentry-go/internal/sentrytest"
+	sentry "github.com/ichnois/ichnois-go"
+	sentrygrpc "github.com/ichnois/ichnois-go/grpc"
+	"github.com/ichnois/ichnois-go/internal/sentrytest"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"

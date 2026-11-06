@@ -1,37 +1,37 @@
-module github.com/getsentry/sentry-go/crosstest
+module github.com/ichnois/ichnois-go/crosstest
 
 go 1.26.0
 
 replace (
-	github.com/getsentry/sentry-go => ../
-	github.com/getsentry/sentry-go/echo => ../echo
-	github.com/getsentry/sentry-go/fasthttp => ../fasthttp
-	github.com/getsentry/sentry-go/fiber => ../fiber
-	github.com/getsentry/sentry-go/fiberv3 => ../fiberv3
-	github.com/getsentry/sentry-go/gin => ../gin
-	github.com/getsentry/sentry-go/grpc => ../grpc
-	github.com/getsentry/sentry-go/iris => ../iris
-	github.com/getsentry/sentry-go/logrus => ../logrus
-	github.com/getsentry/sentry-go/negroni => ../negroni
-	github.com/getsentry/sentry-go/otel => ../otel
-	github.com/getsentry/sentry-go/slog => ../slog
-	github.com/getsentry/sentry-go/zap => ../zap
+	github.com/ichnois/ichnois-go => ../
+	github.com/ichnois/ichnois-go/echo => ../echo
+	github.com/ichnois/ichnois-go/fasthttp => ../fasthttp
+	github.com/ichnois/ichnois-go/fiber => ../fiber
+	github.com/ichnois/ichnois-go/fiberv3 => ../fiberv3
+	github.com/ichnois/ichnois-go/gin => ../gin
+	github.com/ichnois/ichnois-go/grpc => ../grpc
+	github.com/ichnois/ichnois-go/iris => ../iris
+	github.com/ichnois/ichnois-go/logrus => ../logrus
+	github.com/ichnois/ichnois-go/negroni => ../negroni
+	github.com/ichnois/ichnois-go/otel => ../otel
+	github.com/ichnois/ichnois-go/slog => ../slog
+	github.com/ichnois/ichnois-go/zap => ../zap
 )
 
 require (
-	github.com/getsentry/sentry-go v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/echo v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/fasthttp v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/fiber v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/fiberv3 v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/gin v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/grpc v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/iris v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/logrus v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/negroni v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/otel v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/slog v1.0.0-alpha.1
-	github.com/getsentry/sentry-go/zap v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/echo v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/fasthttp v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/fiber v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/fiberv3 v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/gin v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/grpc v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/iris v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/logrus v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/negroni v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/otel v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/slog v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go/zap v1.0.0-alpha.1
 	github.com/gin-gonic/gin v1.9.1
 	github.com/gofiber/fiber/v2 v2.52.14
 	github.com/gofiber/fiber/v3 v3.3.0

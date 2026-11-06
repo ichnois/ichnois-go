@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/getsentry/sentry-go/internal/debuglog"
+	"github.com/ichnois/ichnois-go/internal/debuglog"
 )
 
 func Test_spanRecorder_record(t *testing.T) {

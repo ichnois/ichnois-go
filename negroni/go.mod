@@ -1,11 +1,11 @@
-module github.com/getsentry/sentry-go/negroni
+module github.com/ichnois/ichnois-go/negroni
 
 go 1.26.0
 
-replace github.com/getsentry/sentry-go => ../
+replace github.com/ichnois/ichnois-go => ../
 
 require (
-	github.com/getsentry/sentry-go v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go v1.0.0-alpha.1
 	github.com/google/go-cmp v0.7.0
 	github.com/urfave/negroni/v3 v3.1.1
 )

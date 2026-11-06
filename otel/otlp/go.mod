@@ -1,11 +1,11 @@
-module github.com/getsentry/sentry-go/otel/otlp
+module github.com/ichnois/ichnois-go/otel/otlp
 
 go 1.26.0
 
-replace github.com/getsentry/sentry-go => ../../
+replace github.com/ichnois/ichnois-go => ../../
 
 require (
-	github.com/getsentry/sentry-go v1.0.0-alpha.1
+	github.com/ichnois/ichnois-go v1.0.0-alpha.1
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.45.0
 	go.opentelemetry.io/otel/sdk v1.45.0
 )

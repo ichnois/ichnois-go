@@ -1,4 +1,4 @@
-module github.com/getsentry/sentry-go
+module github.com/ichnois/ichnois-go
 
 go 1.26.0
 

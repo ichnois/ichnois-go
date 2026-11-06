@@ -4,7 +4,7 @@ import (
 	"database/sql/driver"
 	"sync/atomic"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 )
 
 // sentryTx wraps a driver.Tx. It also holds the current active span of

@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/internal/sentrytest"
-	sentryotel "github.com/getsentry/sentry-go/otel"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/internal/sentrytest"
+	sentryotel "github.com/ichnois/ichnois-go/otel"
 	"github.com/stretchr/testify/assert"
 	"go.opentelemetry.io/otel/trace"
 )

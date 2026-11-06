@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/buger/jsonparser"
-	sentry "github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 	"github.com/rs/zerolog"
 )
 

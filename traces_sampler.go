@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 // A SamplingContext is passed to a TracesSampler to determine a sampling
 // decision.

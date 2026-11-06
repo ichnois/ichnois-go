@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"errors"
@@ -215,7 +215,7 @@ func TestExceptionGroupsWithAggregateError(t *testing.T) {
 				},
 				{
 					Value:      "Request failed due to multiple errors",
-					Type:       "*sentry.AggregateError",
+					Type:       "*ichnois.AggregateError",
 					Stacktrace: &Stacktrace{Frames: []Frame{}},
 					Mechanism: &Mechanism{
 						Type:             "generic",
@@ -262,7 +262,7 @@ func TestExceptionGroupsWithAggregateError(t *testing.T) {
 				},
 				{
 					Value: "Multiple validation errors",
-					Type:  "*sentry.AggregateError",
+					Type:  "*ichnois.AggregateError",
 					Mechanism: &Mechanism{
 						Type:             "chained",
 						Source:           MechanismTypeUnwrap,

@@ -5,7 +5,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 type MockTelemetryTransport struct {

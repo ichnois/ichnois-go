@@ -1,10 +1,10 @@
-package sentry
+package ichnois
 
 import (
 	"context"
 	"sync"
 
-	"github.com/getsentry/sentry-go/internal/contextkey"
+	"github.com/ichnois/ichnois-go/internal/contextkey"
 )
 
 type scopeContextKey struct{}

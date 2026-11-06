@@ -15,10 +15,10 @@ import (
 	"github.com/gofiber/fiber/v3/middleware/cache"
 	"github.com/gofiber/fiber/v3/middleware/recover"
 
-	"github.com/getsentry/sentry-go"
-	sentryfiber "github.com/getsentry/sentry-go/fiberv3"
-	"github.com/getsentry/sentry-go/internal/sentrytest"
-	"github.com/getsentry/sentry-go/internal/testutils"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryfiber "github.com/ichnois/ichnois-go/fiberv3"
+	"github.com/ichnois/ichnois-go/internal/sentrytest"
+	"github.com/ichnois/ichnois-go/internal/testutils"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 )

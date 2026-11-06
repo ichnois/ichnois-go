@@ -5,10 +5,10 @@ import (
 	"log/slog"
 	"testing"
 
-	"github.com/getsentry/sentry-go/internal/sentrytest"
-	sentrylogrus "github.com/getsentry/sentry-go/logrus"
-	sentryslog "github.com/getsentry/sentry-go/slog"
-	sentryzap "github.com/getsentry/sentry-go/zap"
+	"github.com/ichnois/ichnois-go/internal/sentrytest"
+	sentrylogrus "github.com/ichnois/ichnois-go/logrus"
+	sentryslog "github.com/ichnois/ichnois-go/slog"
+	sentryzap "github.com/ichnois/ichnois-go/zap"
 	"github.com/sirupsen/logrus"
 	"go.uber.org/zap"
 )

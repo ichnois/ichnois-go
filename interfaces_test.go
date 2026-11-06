@@ -1,4 +1,4 @@
-package sentry
+package ichnois
 
 import (
 	"context"
@@ -15,11 +15,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/getsentry/sentry-go/attribute"
-	"github.com/getsentry/sentry-go/internal/ratelimit"
-	"github.com/getsentry/sentry-go/internal/telemetry"
-	"github.com/getsentry/sentry-go/internal/testutils"
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/attribute"
+	"github.com/ichnois/ichnois-go/internal/ratelimit"
+	"github.com/ichnois/ichnois-go/internal/telemetry"
+	"github.com/ichnois/ichnois-go/internal/testutils"
+	"github.com/ichnois/ichnois-go/protocol"
 	"github.com/google/go-cmp/cmp"
 )
 
@@ -476,7 +476,7 @@ func TestSetException(t *testing.T) {
 			expected: []Exception{
 				{
 					Value:      "custom error message",
-					Type:       "*sentry.customError",
+					Type:       "*ichnois.customError",
 					Stacktrace: &Stacktrace{Frames: []Frame{}},
 					Mechanism:  nil,
 				},
@@ -503,7 +503,7 @@ func TestSetException(t *testing.T) {
 				},
 				{
 					Value: "error with cause",
-					Type:  "*sentry.withCause",
+					Type:  "*ichnois.withCause",
 					Mechanism: &Mechanism{
 						Type:             "chained",
 						Source:           MechanismTypeUnwrap,

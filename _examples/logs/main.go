@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/attribute"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/attribute"
 )
 
 func main() {

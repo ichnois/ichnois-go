@@ -1,11 +1,11 @@
-package sentry_test
+package ichnois_test
 
 import (
 	"context"
 	"errors"
 	"testing"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 	pkgErrors "github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

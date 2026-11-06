@@ -20,7 +20,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/getsentry/sentry-go"
+	sentry "github.com/ichnois/ichnois-go"
 )
 
 // release is the release of this program that will be reported to Sentry.

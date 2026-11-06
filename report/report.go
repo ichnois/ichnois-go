@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/getsentry/sentry-go/protocol"
+	"github.com/ichnois/ichnois-go/protocol"
 )
 
 // ClientReport is the payload sent to Sentry for tracking discarded events.

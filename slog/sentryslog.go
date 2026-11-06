@@ -4,8 +4,8 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/attribute"
+	sentry "github.com/ichnois/ichnois-go"
+	"github.com/ichnois/ichnois-go/attribute"
 )
 
 // Majority of the code in this package is derived from https://github.com/samber/slog-sentry AND https://github.com/samber/slog-common

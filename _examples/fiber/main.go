@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/getsentry/sentry-go"
-	sentryfiber "github.com/getsentry/sentry-go/fiber"
+	sentry "github.com/ichnois/ichnois-go"
+	sentryfiber "github.com/ichnois/ichnois-go/fiber"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/utils"
 )
