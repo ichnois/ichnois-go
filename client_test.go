@@ -648,13 +648,13 @@ func TestCaptureEvent(t *testing.T) {
 		Level:      LevelInfo,
 		Platform:   "go",
 		Sdk: SdkInfo{
-			Name:    "sentry.go",
+			Name:    "ichnois.go",
 			Version: SDKVersion,
 			Packages: []SdkPackage{
 				{
 					// FIXME: name format doesn't follow spec in
 					// https://docs.sentry.io/development/sdk-dev/event-payloads/sdk/
-					Name:    "sentry-go",
+					Name:    "ichnois-go",
 					Version: SDKVersion,
 				},
 				// TODO: perhaps the list of packages is incomplete or there
@@ -1535,10 +1535,10 @@ func TestCustomMaxSpansProperty(t *testing.T) {
 
 func TestSDKIdentifier(t *testing.T) {
 	client, _, _ := setupClientTest()
-	assertEqual(t, client.GetSDKIdentifier(), "sentry.go")
+	assertEqual(t, client.GetSDKIdentifier(), "ichnois.go")
 
-	client.SetSDKIdentifier("sentry.go.test")
-	assertEqual(t, client.GetSDKIdentifier(), "sentry.go.test")
+	client.SetSDKIdentifier("ichnois.go.test")
+	assertEqual(t, client.GetSDKIdentifier(), "ichnois.go.test")
 }
 
 // wrappedTransport forwards to Transport, calling send instead of the wrapped

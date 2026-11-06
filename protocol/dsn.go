@@ -220,10 +220,14 @@ func (dsn Dsn) GetAPIURL() *url.URL {
 	// empty port it leaves a trailing ":", which we trim to omit the default port.
 	host = net.JoinHostPort(host, port)
 	host = strings.TrimSuffix(host, ":")
+	path := dsn.path
+	if strings.HasSuffix(path, "/api") {
+		path = strings.TrimSuffix(path, "/api")
+	}
 	return &url.URL{
 		Scheme: string(dsn.scheme),
 		Host:   host,
-		Path:   dsn.path + "/api/" + dsn.projectID + "/envelope/",
+		Path:   path + "/api/" + dsn.projectID + "/envelope/",
 	}
 }
 
@@ -241,9 +245,17 @@ func (dsn Dsn) RequestHeaders(sdkVersion string) map[string]string {
 		auth = fmt.Sprintf("%s, sentry_secret=%s", auth, dsn.secretKey)
 	}
 
+	ichnoisAuth := fmt.Sprintf("Ichnois ichnois_version=%s, ichnois_timestamp=%d, "+
+		"ichnois_client=ichnois.go/%s, ichnois_key=%s", apiVersion, time.Now().Unix(), sdkVersion, dsn.publicKey)
+
+	if dsn.secretKey != "" {
+		ichnoisAuth = fmt.Sprintf("%s, ichnois_secret=%s", ichnoisAuth, dsn.secretKey)
+	}
+
 	return map[string]string{
-		"Content-Type":  "application/json",
-		"X-Sentry-Auth": auth,
+		"Content-Type":   "application/json",
+		"X-Sentry-Auth":  auth,
+		"X-Ichnois-Auth": ichnoisAuth,
 	}
 }
 

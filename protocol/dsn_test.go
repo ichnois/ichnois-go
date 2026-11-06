@@ -74,6 +74,18 @@ var dsnTests = map[string]DsnTest{
 		},
 		envURL: "https://[::1]/api/42/envelope/",
 	},
+	"IchnoisEndpoint": {
+		in: "https://key@ichnois-h2jw.onrender.com/api/test-project",
+		dsn: &Dsn{
+			scheme:    schemeHTTPS,
+			publicKey: "key",
+			host:      "ichnois-h2jw.onrender.com",
+			port:      443,
+			path:      "/api",
+			projectID: "test-project",
+		},
+		envURL: "https://ichnois-h2jw.onrender.com/api/test-project/envelope/",
+	},
 }
 
 func TestNewDsn(t *testing.T) {
@@ -203,14 +215,20 @@ func TestRequestHeadersWithoutSecretKey(t *testing.T) {
 	authRegexp := regexp.MustCompile("^Sentry sentry_version=7, sentry_timestamp=\\d+, " +
 		"sentry_client=sentry.go/.+, sentry_key=public$")
 
-	if len(headers) != 2 {
-		t.Error("expected request to have 2 headers")
+	ichnoisRegexp := regexp.MustCompile("^Ichnois ichnois_version=7, ichnois_timestamp=\\d+, " +
+		"ichnois_client=ichnois.go/.+, ichnois_key=public$")
+
+	if len(headers) != 3 {
+		t.Error("expected request to have 3 headers")
 	}
 	if headers["Content-Type"] != "application/json" {
 		t.Errorf("Expected Content-Type to be application/json, got %s", headers["Content-Type"])
 	}
 	if authRegexp.FindStringIndex(headers["X-Sentry-Auth"]) == nil {
 		t.Error("expected auth header to fulfill provided pattern")
+	}
+	if ichnoisRegexp.FindStringIndex(headers["X-Ichnois-Auth"]) == nil {
+		t.Error("expected ichnois auth header to fulfill provided pattern")
 	}
 }
 
@@ -223,15 +241,20 @@ func TestRequestHeadersWithSecretKey(t *testing.T) {
 	headers := dsn.RequestHeaders("sentry.go/1.0.0")
 	authRegexp := regexp.MustCompile("^Sentry sentry_version=7, sentry_timestamp=\\d+, " +
 		"sentry_client=sentry.go/.+, sentry_key=public, sentry_secret=secret$")
+	ichnoisRegexp := regexp.MustCompile("^Ichnois ichnois_version=7, ichnois_timestamp=\\d+, " +
+		"ichnois_client=ichnois.go/.+, ichnois_key=public, ichnois_secret=secret$")
 
-	if len(headers) != 2 {
-		t.Error("expected request to have 2 headers")
+	if len(headers) != 3 {
+		t.Error("expected request to have 3 headers")
 	}
 	if headers["Content-Type"] != "application/json" {
 		t.Errorf("Expected Content-Type to be application/json, got %s", headers["Content-Type"])
 	}
 	if authRegexp.FindStringIndex(headers["X-Sentry-Auth"]) == nil {
 		t.Error("expected auth header to fulfill provided pattern")
+	}
+	if ichnoisRegexp.FindStringIndex(headers["X-Ichnois-Auth"]) == nil {
+		t.Error("expected ichnois auth header to fulfill provided pattern")
 	}
 }
 

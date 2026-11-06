@@ -22,7 +22,7 @@ import (
 )
 
 // The identifier of the SDK.
-const sdkIdentifier = "sentry.go"
+const sdkIdentifier = "ichnois.go"
 
 const (
 	// maxErrorDepth is the maximum number of errors reported in a chain of errors.
@@ -350,7 +350,10 @@ func NewClient(options ClientOptions) (*Client, error) {
 	}
 
 	if options.Dsn == "" {
-		options.Dsn = os.Getenv("SENTRY_DSN")
+		options.Dsn = os.Getenv("ICHNOIS_DSN")
+		if options.Dsn == "" {
+			options.Dsn = os.Getenv("SENTRY_DSN")
+		}
 	}
 
 	if options.Release == "" {
@@ -358,7 +361,10 @@ func NewClient(options ClientOptions) (*Client, error) {
 	}
 
 	if options.Environment == "" {
-		options.Environment = os.Getenv("SENTRY_ENVIRONMENT")
+		options.Environment = os.Getenv("ICHNOIS_ENVIRONMENT")
+		if options.Environment == "" {
+			options.Environment = os.Getenv("SENTRY_ENVIRONMENT")
+		}
 	}
 
 	if options.MaxErrorDepth == 0 {
@@ -382,7 +388,11 @@ func NewClient(options ClientOptions) (*Client, error) {
 	//
 	// The intended public is SDK developers. It is orthogonal to
 	// options.Debug, which is also available for SDK users.
-	dbg := strings.Split(os.Getenv("SENTRYGODEBUG"), ",")
+	dbgStr := os.Getenv("ICHNOISGODEBUG")
+	if dbgStr == "" {
+		dbgStr = os.Getenv("SENTRYGODEBUG")
+	}
+	dbg := strings.Split(dbgStr, ",")
 	sort.Strings(dbg)
 	// dbgOpt returns true when the given debug option is enabled, for
 	// example SENTRYGODEBUG=someopt=1.
@@ -493,7 +503,7 @@ func (client *Client) sdkInfo() *protocol.SdkInfo {
 		Version:      SDKVersion,
 		Integrations: client.listIntegrations(),
 		Packages: []SdkPackage{{
-			Name:    "sentry-go",
+			Name:    "ichnois-go",
 			Version: SDKVersion,
 		}},
 	}
@@ -945,7 +955,7 @@ func (client *Client) prepareEvent(ctx context.Context, event *Event, scope *Sco
 		Version:      SDKVersion,
 		Integrations: client.listIntegrations(),
 		Packages: []SdkPackage{{
-			Name:    "sentry-go",
+			Name:    "ichnois-go",
 			Version: SDKVersion,
 		}},
 	}

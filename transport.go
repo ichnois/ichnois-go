@@ -99,6 +99,15 @@ func getSentryRequestFromEnvelope(ctx context.Context, dsn *protocol.Dsn, envelo
 			}
 
 			r.Header.Set("X-Sentry-Auth", auth)
+
+			ichnoisAuth := fmt.Sprintf("Ichnois ichnois_version=%d, "+
+				"ichnois_client=%s/%s, ichnois_key=%s", apiVersion, sdkName, sdkVersion, dsn.GetPublicKey())
+
+			if dsn.GetSecretKey() != "" {
+				ichnoisAuth = fmt.Sprintf("%s, ichnois_secret=%s", ichnoisAuth, dsn.GetSecretKey())
+			}
+
+			r.Header.Set("X-Ichnois-Auth", ichnoisAuth)
 		}
 	}()
 

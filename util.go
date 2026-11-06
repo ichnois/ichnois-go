@@ -40,6 +40,7 @@ func prettyPrint(data interface{}) {
 func defaultRelease() (release string) {
 	// Return first non-empty environment variable known to hold release info, if any.
 	envs := []string{
+		"ICHNOIS_RELEASE",
 		"SENTRY_RELEASE",
 		"HEROKU_BUILD_COMMIT",
 		"HEROKU_SLUG_COMMIT", // Deprecated, kept for backwards compatibility

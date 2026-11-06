@@ -6,7 +6,7 @@ import (
 )
 
 // logger is the global debug logger instance.
-var logger = log.New(io.Discard, "[Sentry] ", log.LstdFlags)
+var logger = log.New(io.Discard, "[Ichnois] ", log.LstdFlags)
 
 // SetOutput changes the output destination of the logger.
 func SetOutput(w io.Writer) {
