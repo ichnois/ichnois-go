@@ -159,6 +159,12 @@ import sentry "github.com/ichnois/ichnois-go"
 
 All existing calls (`sentry.Init`, `sentry.CaptureException`, `sentry.WithScope`, etc.) work unchanged.
 
+## Documentation
+
+For the complete technical reference, framework guides, structured logging (Zap, Slog, Zerolog), goroutine panic recovery, and automated release instructions, see:
+- 📖 [Complete Integration & Automation Guide](DOCUMENTATION.md)
+- ⚙️ [Docs Folder Reference](docs/GUIDE.md)
+
 ## License
 
 Licensed under the MIT License. See [LICENSE](LICENSE) for details.
